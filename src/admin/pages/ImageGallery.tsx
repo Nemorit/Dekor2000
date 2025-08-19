@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AdminLayout from '../components/AdminLayout';
 import { Image, Trash2, Upload, Search } from 'lucide-react';
 
 interface ImageItem {
@@ -102,7 +101,7 @@ const ImageGallery: React.FC = () => {
     setDragActive(false);
     
     // Gerçek uygulamada burada dosya yükleme işlemleri yapılacak
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+    if (e.dataTransfer.files?.[0]) {
       // Örnek olarak yeni bir görsel ekleyelim
       const file = e.dataTransfer.files[0];
       
@@ -121,7 +120,7 @@ const ImageGallery: React.FC = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Gerçek uygulamada burada dosya yükleme işlemleri yapılacak
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files?.[0]) {
       const file = e.target.files[0];
       
       const newImage: ImageItem = {
@@ -138,7 +137,7 @@ const ImageGallery: React.FC = () => {
   };
 
   return (
-    <AdminLayout title="Görsel Yönetimi">
+    <>
       <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between">
         <div className="relative flex-1">
           <Search className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" size={18} />
@@ -184,18 +183,13 @@ const ImageGallery: React.FC = () => {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        aria-label="Görsel sürükle bırak alanı"
       >
         <Image className="mx-auto mb-3 text-gray-400" size={48} />
         <p className="text-gray-500">Görselleri buraya sürükleyip bırakın veya</p>
         <label className="mt-2 inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors cursor-pointer">
           Bilgisayardan Seç
-          <input
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleFileChange}
-            multiple
-          />
+          <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} multiple />
         </label>
       </div>
 
@@ -234,7 +228,7 @@ const ImageGallery: React.FC = () => {
           <p className="text-gray-500">Görsel bulunamadı.</p>
         </div>
       )}
-    </AdminLayout>
+    </>
   );
 };
 

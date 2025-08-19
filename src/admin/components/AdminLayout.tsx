@@ -14,7 +14,7 @@ import {
 
 interface AdminLayoutProps {
   children: React.ReactNode;
-  title: string;
+  title?: string;
 }
 
 const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
@@ -91,7 +91,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
       {/* Main content */}
       <main className="flex-1 overflow-auto">
         <header className="bg-white shadow-sm p-4 lg:p-6">
-          <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
+          <h1 className="text-2xl font-semibold text-gray-800">{title || 'Admin Panel'}</h1>
         </header>
         <div className="p-4 lg:p-6">
           {children}

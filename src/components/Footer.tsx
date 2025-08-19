@@ -196,9 +196,9 @@ const Footer: React.FC = () => {
               © {currentYear} {companyInfo.name}. Tüm hakları saklıdır.
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Gizlilik Politikası</a>
-              <a href="#" className="hover:text-white transition-colors">Kullanım Şartları</a>
-              <a href="#" className="hover:text-white transition-colors">Çerez Politikası</a>
+              <a href="/privacy" className="hover:text-white transition-colors">Gizlilik Politikası</a>
+              <a href="/terms" className="hover:text-white transition-colors">Kullanım Şartları</a>
+              <a href="/cookies" className="hover:text-white transition-colors">Çerez Politikası</a>
             </div>
           </div>
         </div>

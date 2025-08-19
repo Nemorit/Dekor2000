@@ -1,5 +1,4 @@
 import React from 'react';
-import AdminLayout from '../components/AdminLayout';
 import { Image, FileText, PieChart, Calendar, UserCheck } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -20,7 +19,7 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <AdminLayout title="Admin Dashboard">
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         {stats.map((stat) => (
           <div key={stat.id} className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
@@ -78,7 +77,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 };
 

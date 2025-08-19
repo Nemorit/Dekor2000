@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ContactPage from './pages/ContactPage';
 import AdminRouter from './admin/AdminRouter';
+
+// Placeholder components
+const HomePage = () => <div>Ana Sayfa</div>;
+const AboutPage = () => <div>Hakkımızda</div>;
+const ServicesPage = () => <div>Hizmetlerimiz</div>;
+const ProjectsPage = () => <div>Projelerimiz</div>;
+const ContactPage = () => <div>İletişim</div>;
 
 const AppRouter: React.FC = () => {
   return (

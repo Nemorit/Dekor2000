@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import AdminLayout from '../components/AdminLayout';
 import { Save, X, Image as ImageIcon } from 'lucide-react';
 
 interface BlogPost {
@@ -85,7 +84,7 @@ const BlogForm: React.FC = () => {
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files?.[0]) {
       const file = e.target.files[0];
       
       // Gerçek uygulamada burada API'ye resim yükleme yapılacak
@@ -112,7 +111,6 @@ const BlogForm: React.FC = () => {
   };
 
   return (
-    <AdminLayout title={isEditMode ? 'Blog Yazısını Düzenle' : 'Yeni Blog Yazısı'}>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Sol Kolon - Ana Detaylar */}
@@ -257,12 +255,7 @@ const BlogForm: React.FC = () => {
                     </p>
                     <label className="inline-block px-3 py-2 bg-gray-100 text-gray-700 text-sm rounded-md hover:bg-gray-200 cursor-pointer">
                       Bilgisayardan Seç
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        className="hidden"
-                      />
+                      <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                     </label>
                     {errors.image && <p className="mt-2 text-sm text-red-500">{errors.image}</p>}
                   </div>
@@ -294,7 +287,6 @@ const BlogForm: React.FC = () => {
           </button>
         </div>
       </form>
-    </AdminLayout>
   );
 };
 

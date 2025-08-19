@@ -2,12 +2,12 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import SEO from './SEO';
+import Seo from './SEO';
 
 const Layout: React.FC = () => {
   return (
     <div className="min-h-screen">
-      <SEO />
+      <Seo />
       <Header />
       <main>
         <Outlet />

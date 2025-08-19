@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AdminLayout from '../components/AdminLayout';
 import { Plus, Edit2, Trash2, ChevronRight, Clock, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -84,7 +83,7 @@ const BlogList: React.FC = () => {
   };
 
   return (
-    <AdminLayout title="Blog Yönetimi">
+    <>
       <div className="mb-6 flex flex-col md:flex-row gap-4 justify-between">
         <div className="relative flex-1">
           <Search className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" size={18} />
@@ -183,7 +182,7 @@ const BlogList: React.FC = () => {
           <p className="text-gray-500">Blog yazısı bulunamadı.</p>
         </div>
       )}
-    </AdminLayout>
+    </>
   );
 };
 
